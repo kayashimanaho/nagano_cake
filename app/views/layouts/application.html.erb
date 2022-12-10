@@ -2,15 +2,48 @@
 <html>
   <head>
     <title>NaganoCake</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://kit.fontawesome.com/e820bdb904.js" crossorigin="anonymous"></script>
+    
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+    <body>
+      <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-pink bg-pink" style="background-color: #fde3e9";>
+        <div class="container">
+          <h2>Nagano_Cake</h2>
+          <!--<a class="navbar-brand" href="/"><span>Bookers</span></a>-->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if customer_signed_in? %>
+              <li class="nav-item">
+                <%= link_to customer_path , class: 'nav-link text-light' do %>
+                <span><i class="fa-solid fa-cake-candles"></i>マイページ</span>
+                <% end %>              
+                </li>
+                
+                <% end %>
+            </ul>
+        </div>      
+      </div>
+    </nav>
+   </header>
     <%= yield %>
+  
+    <footer class=" text-white pt-5 pb-4" style="background-color: #fde3e9";>
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4"></div>
+          <div class="col-md-8"></div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

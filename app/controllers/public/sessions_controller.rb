@@ -28,10 +28,10 @@ class Public::SessionsController < Devise::SessionsController
     # 取得したアカウントのパスワードと入力されたパスワードが一致しているかを判断
     if @customer.valid_password?(params[:customer][:password])
     # 条件式の記述が
+    end
   end
     
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
 end

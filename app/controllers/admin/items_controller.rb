@@ -1,11 +1,13 @@
 class Admin::ItemsController < ApplicationController
-  def index
-  end
 
   def new
   end
 
   def create
+  end
+  
+  def index
+    @items =Item.all
   end
 
   def show

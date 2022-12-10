@@ -12,6 +12,19 @@ devise_for :customers,skip: [:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
+    scope module: :public do
+      root to:"homes#top"
+      get "/about" => "homes#about", as: "about"
+      get 'customers/unsubscribe'
+      get 'customers/withdraw'
+      get '/customers/my_page' => 'customers#show'
+      get 'orders/complete'
+      get 'orders/comfirm'
+      resources :items, only:[:index, :show]
+      resources :customers, only:[:show, :edit, :update]
+      resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+      resources :orders, only:[:new, :create, :index, :show]
+    end
   
   namespace :admin do
     root to:"homes#top"
@@ -23,15 +36,5 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
   
   
-    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
-    resources :orders, only:[:new, :create, :index, :show]
-    get 'orders/comfirm'
-    get 'orders/complete'
-    resources :customers, only:[:show, :edit, :update]
-    get 'customers/unsubscribe'
-    get 'customers/withdraw'
-    resources :items, only:[:index, :show]
-    get 'homes/top'
-    get 'homes/about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
