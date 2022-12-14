@@ -1,5 +1,5 @@
 <div class="container">
-<div class="p-2 mb-4 bg-secondary text-white">商品一覧</div>
+<h3><span style="background-color: silver;">商品一覧</span></h3>
 
   <table width="900",align="center">
     <thead>
@@ -17,20 +17,21 @@
     <% @items.each do |item| %>
     <tr>
       <td><%= item.id %></td>
-      <!--ここ入れたらエラーなる-->
-      <td><%= link_to item.name, admin_item_path(@item.id) %></td>
+      <td><%= link_to item.name, admin_item_path(item.id) %></td>
       <td></td>
       <td><%= item.price %></td>
       <td><%= item.genre.name %></td>
       <td></td>
       <!--分岐の書き方-->
-      <!--<td>% if item.is_active = "販売中" %>-->
-       <!--% else %>-->
-       
+      <td><% if item.is_active %>
+        <span style="color:green;">販売中</span>
+       <% else %>
+        <span>販売停止中</span>
       <% end %>
-  
+      </td>
       
     </tr>
+    <% end %>
   </tbody>
   </table>
   </div>
