@@ -1,2 +1,36 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+<div class="container">
+<div class="p-2 mb-4 bg-secondary text-white">商品一覧</div>
+
+  <table width="900",align="center">
+    <thead>
+      <tr class="p-3 mb-2 bg-secondary text-white">
+        <th><b>商品ID</b></th>
+        <th><b>商品名</b></th>
+        <th></th>
+        <th><b>税抜価格</b></th>
+        <th><b>ジャンル</b></th>
+        <th></th>
+       <th><b>ステータス</b></th>
+     </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <!--ここ入れたらエラーなる-->
+      <td><%= link_to item.name, admin_item_path(@item.id) %></td>
+      <td></td>
+      <td><%= item.price %></td>
+      <td><%= item.genre.name %></td>
+      <td></td>
+      <!--分岐の書き方-->
+      <!--<td>% if item.is_active = "販売中" %>-->
+       <!--% else %>-->
+       
+      <% end %>
+  
+      
+    </tr>
+  </tbody>
+  </table>
+  </div>

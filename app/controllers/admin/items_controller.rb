@@ -6,14 +6,14 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-     @item = Item.new(post_image_params)
-    @item.user_id = current_user.id
-    @item.save
-    redirect_to admin_item_path
+     @item = Item.new(item_params)
+    @item.save!
+    redirect_to admin_item_path(@item.id)
   end
   
   def index
     @items =Item.all
+  
   end
 
   def show
@@ -22,6 +22,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+     @item = Item.find(params[:id])
   end
 
   def update
@@ -30,6 +31,6 @@ class Admin::ItemsController < ApplicationController
    private
 
   def item_params
-    params.require(:item).permit(:name, :image, :genre, :introduction,:price, :is_active)
+    params.require(:item).permit(:name, :image, :genre_id, :introduction,:price, :is_active)
   end
 end

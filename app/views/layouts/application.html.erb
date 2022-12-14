@@ -47,7 +47,7 @@
               
               <% elsif admin_signed_in? %>
               <li class="nav-item">
-                <%= link_to items_path , class: 'nav-link text-dark' do %>
+                <%= link_to admin_items_path , class: 'nav-link text-dark' do %>
                 <span><i class="fa-solid fa-cake-candles"></i>商品一覧</span>
                 <% end %>              
                 </li>
