@@ -19,14 +19,14 @@
       <td><%= item.id %></td>
       <td><%= link_to item.name, admin_item_path(item.id) %></td>
       <td></td>
-      <td><%= item.price %></td>
+      <td><%= item.price.to_s(:delimited) %></td>
       <td><%= item.genre.name %></td>
       <td></td>
       <!--分岐の書き方-->
       <td><% if item.is_active %>
         <span style="color:green;">販売中</span>
        <% else %>
-        <span>販売停止中</span>
+        <span style="color:grey;">販売停止中</span>
       <% end %>
       </td>
       
