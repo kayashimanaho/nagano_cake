@@ -6,6 +6,7 @@
         <th><b>会員ID</b></th>
         <th><b>氏名</b></th>
         <th></th>
+        <th></th>
         <th><b>メールアドレス</b></th>
         <th><b>ステータス</b></th>
      </tr>
@@ -14,16 +15,16 @@
     <% @customers.each do |customer| %>
     <tr>
       <td><%= customer.id %></td>
-      <!--<td>%= link_to customer.first_name, customer.last_name, admin_customer_path(customer.id) %></td>-->
+      <td><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
       <td></td>
       <td></td>
       <td><%= customer.email %></td>
-      <!--<td>%= if customer.is_deleted %>-->
-          <!--<span style="color:green;">有効</span>-->
-       <!--% else %>-->
-          <!--<span style="color:grey;">退会</span>-->
-      <!--% end %>-->
-      <!--</td>-->
+      <td><% if customer.is_deleted %>
+          <span style="color:grey;">退会</span>
+       <% else %>
+          <span style="color:limegreen;">有効</span>
+      <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
