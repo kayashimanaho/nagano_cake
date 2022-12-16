@@ -43,7 +43,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     root to:"homes#top"
     get 'order_details/update'
     post 'admin/items' => 'create'
-    resources :orders, only:[:show, :update]
+    resources :orders, only:[:show, :index, :update]
     resources :customers, only:[:index, :show, :edit, :update]
     resources :genres, only:[:index, :create, :edit, :update]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]

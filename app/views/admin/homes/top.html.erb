@@ -12,16 +12,15 @@
      </tr>
   </thead>
   <tbody>
-    <% @customers.each do |customer| %>
+    <% @orders.each do |order| %>
     <tr>
-      <td><%= link_to item.name, admin_item_path(item.id) %></td>
+      <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(customer.id) %></td>
+      <td><%= order.name %></td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <!--<td>%=注文個数を表示させたい  %></td>-->
+      <!--td>%=注文ステータス入れたい  %></td>-->
     </tr>
+    <% end %>
   </tbody>
   </table>
-  </div>
-    
-    
+</div>
