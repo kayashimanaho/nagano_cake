@@ -4,19 +4,24 @@
   <table width="900",align="center">
     <thead>
       <tr class="p-3 mb-2 bg-secondary text-white">
-        <th><b>商品ID</b></th>
-        <th><b>商品名</b></th>
+        <th><b>購入日時</b></th>
+        <th><b>購入者</b></th>
         <th></th>
-        <th><b>税抜価格</b></th>
-        <th><b>ジャンル</b></th>
-        <th></th>
-       <th><b>ステータス</b></th>
+        <th><b>注文個数</b></th>
+        <th><b>注文ステータス</b></th>
      </tr>
   </thead>
   <tbody>
-    
-    
-    
+    <% @customers.each do |customer| %>
+    <tr>
+      <td><%= link_to item.name, admin_item_path(item.id) %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
   </tbody>
   </table>
   </div>
+    
+    

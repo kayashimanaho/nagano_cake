@@ -5,34 +5,34 @@
 
   <div class="field">
     <%= f.label :名前 %>
-    <a>（姓）</a><%= f.text_field :last_name %>
-    <a>（名）</a><%= f.text_field :first_name %>
+    <a>（姓）</a><%= f.text_field :last_name, placeholder:"令和" %>
+    <a>（名）</a><%= f.text_field :first_name, placeholder:"道子"%>
   </div>
   
   <div class="field">
     <%= f.label :フリガナ %>
-    <a>（セイ）</a><%= f.text_field :last_name_kana %>
-    <a>（メイ）</a><%= f.text_field :first_name_kana %>
+    <a>（セイ）</a><%= f.text_field :last_name_kana, placeholder:"レイワ" %>
+    <a>（メイ）</a><%= f.text_field :first_name_kana, placeholder:"ミチコ" %>
   </div>
   
   <div class="field">
     <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %>
   </div>
   
   <div class="field">
     <%= f.label :郵便番号（ハイフンなし） %>
-    <%= f.text_field :postal_code %>
+    <%= f.text_field :postal_code, placeholder:"0000000" %>
   </div>
   
   <div class="field">
     <%= f.label :住所 %>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町０−０" %>
   </div>
   
   <div class="field">
     <%= f.label :電話番号 %>
-    <%= f.text_field :telephone_number%>
+    <%= f.text_field :telephone_number, placeholder:"00000000000" %>
   </div>
   
  
