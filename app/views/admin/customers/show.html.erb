@@ -3,7 +3,7 @@
 
     <div>
       <p>会員ID <%= @customer.id %></p>
-      <p>氏名 <%= @customer.last_name + @customer.first_name %></p>
+      <p>氏名 <%= @customer.full_name %></p>
       <p>フリナガ <%= @customer.full_name_kana %></p>
       <p>郵便番号 <%= @customer.postal_code %></p>
       <p>住所 <%= @customer.address %></p>

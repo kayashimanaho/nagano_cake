@@ -1,8 +1,8 @@
 <div class ="container">
   <h3><span style="background-color: silver;">さんの会員情報編集</span></h3>
     <%= form_with model: @customer, url: admin_customer_path do |f| %><br>
-      <label for="inputId">会員ID</label><br>
-      <!--%= customer.id %>-->
+      <label for="inputId">会員ID</label>
+      <%= @customer.id %><br>
       <!--%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%><br>-->
       
       <label for="inputLast_name">氏名</label>

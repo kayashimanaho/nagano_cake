@@ -12,10 +12,10 @@
     ジャンル
   </div>
   <% @genres.each do |genre| %>
-  <ul class="list-group list-group-flush">
+  <div class="list-group list-group-flush">
     <%= genre.name %>
-    <%= link_to "編集する", edit_admin_genre_path(@genre.id),class: "btn btn-success" %>
-  </ul>
+    <%= link_to "編集する", edit_admin_genre_path(genre.id),class: "btn btn-success btn-sm" %>
+  </div>
   <% end %>
   
 </div>
