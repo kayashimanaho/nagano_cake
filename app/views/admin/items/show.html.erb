@@ -5,7 +5,7 @@
         <% if @item.image.attached? %>
           <%= image_tag @item.image, size: "200x200" %>
         <% else %>
-          <%= image_tag 'noimage.png', size: "200x200" %>
+          <%= image_tag 'no_image.jpeg', size: "200x200" %>
         <% end %>
           <p>商品名 <%= @item.name %></p>
           <p>商品説明 <%= @item.introduction %></p>

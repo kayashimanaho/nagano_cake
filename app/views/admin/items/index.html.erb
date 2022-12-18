@@ -1,37 +1,40 @@
 <div class="container">
 <h3><span style="background-color: silver;">商品一覧</span></h3>
-
-  <table width="900",align="center">
-    <thead>
-      <tr class="p-3 mb-2 bg-secondary text-white">
-        <th><b>商品ID</b></th>
-        <th><b>商品名</b></th>
-        <th></th>
-        <th><b>税抜価格</b></th>
-        <th><b>ジャンル</b></th>
-        <th></th>
-       <th><b>ステータス</b></th>
-     </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-    <tr>
-      <td><%= item.id %></td>
-      <td><%= link_to item.name, admin_item_path(item.id) %></td>
-      <td></td>
-      <td><%= item.price.to_s(:delimited) %></td>
-      <td><%= item.genre.name %></td>
-      <td></td>
-      <!--分岐の書き方-->
-      <td><% if item.is_active %>
-        <span style="color:limegreen;">販売中</span>
-       <% else %>
-        <span style="color:grey;">販売停止中</span>
-      <% end %>
-      </td>
-      
-    </tr>
+ <p class="text-right">
+    <%= link_to new_admin_item_path,class: 'nav-link text-dark' do  %>
+      <span><i class="fa-solid fa-plus"></i></span>
     <% end %>
-  </tbody>
+  </p>
+    <table width="900",align="center">
+      <thead>
+        <tr class="p-3 mb-2 bg-secondary text-white">
+          <th><b>商品ID</b></th>
+          <th><b>商品名</b></th>
+          <th></th>
+          <th><b>税抜価格</b></th>
+          <th><b>ジャンル</b></th>
+          <th></th>
+         <th><b>ステータス</b></th>
+       </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.id %></td>
+            <td><%= link_to item.name, admin_item_path(item.id) %></td>
+            <td></td>
+            <td><%= item.price.to_s(:delimited) %></td>
+            <td><%= item.genre.name %></td>
+            <td></td>
+      <!--分岐の書き方-->
+            <td><% if item.is_active %>
+              <span style="color:limegreen;">販売中</span>
+            <% else %>
+              <span style="color:grey;">販売停止中</span>
+            <% end %>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
-  </div>
+</div>

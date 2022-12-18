@@ -1,37 +1,49 @@
 <div class="jumbotron">
   <div class ="container-fluid">
-
-
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    ジャンル検索
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">ケーキ</li>
-    <li class="list-group-item">焼き菓子</li>
-    <li class="list-group-item">プリン</li>
-    <li class="list-group-item">キャンディー</li>
-  </ul>
-</div>
-</div>
-
-
-
-<div calss ="text">
-<a>ようこそ、ながのCAKEへ！</a><br>
-<a>このサイトは、ケーキ販売のECサイトになります。</a><br>
-<a>会員でない方も商品の閲覧はできますが、</a><br>
-<a>購入には会員登録が必要になります。</a><br>
-</div>
-</div>
-<h3><strong>新着商品</strong></h3>
-<% @item.each do |item| %>
-  <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <p class="card-text"><%= item.name %></p>
+    <div ="row">
+      <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            ジャンル検索</div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">ケーキ</li>
+                  <li class="list-group-item">焼き菓子</li>
+                  <li class="list-group-item">プリン</li>
+                  <li class="list-group-item">キャンディー</li>
+              </ul>
+        </div>
       </div>
-  </div>
-<% end %>
+    </div>
 
+<div class="col-sm-8">
+  <div calss ="text">
+    <a>ようこそ、ながのCAKEへ！</a><br>
+    <a>このサイトは、ケーキ販売のECサイトになります。</a><br>
+    <a>会員でない方も商品の閲覧はできますが、</a><br>
+    <a>購入には会員登録が必要になります。</a><br>
+  </div>
+</div>
+<div class ="row">
+  <div class="col-sm-8">
+    <h3><strong>新着商品</strong></h3>
+    <div class="card-deck">
+      <% @item.each do |item| %>
+        <div class="card" style="width: 18rem;">
+          <% if item.image.attached? %>
+            <%= image_tag item.image %>
+          <% else %>
+            <%= image_tag "no_image.jpeg" %>
+          <% end %>
+          <div class="card-body">
+            <p class="card-text"><%= item.name %></p>
+            <p class="card-text">¥<%= (item.price.to_s(:delimited)) %></p>
+            
+          </div>
+        </div>
+      <% end %>
+  </div>
+  </div>
+</div>
+  </div>
 </div>
 
