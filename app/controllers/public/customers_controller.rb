@@ -1,10 +1,11 @@
 class Public::CustomersController < ApplicationController
-  def show
-    @customer = Customer.find(params[:id])
+  def my_page
+    # @customer = Customer.find(params[:id])
+    @customers = current_customer
   end
   
   def edit
-     @customer = Customer.find(params[:id])
+     @customers = current_customer
   end
   
   def update
@@ -16,6 +17,4 @@ class Public::CustomersController < ApplicationController
   def withdraw
   end
   
-  def my_page
-  end
 end

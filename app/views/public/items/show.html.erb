@@ -6,11 +6,29 @@
             ジャンル検索</div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">ケーキ</li>
-                  <li class="list-group-item">焼き菓子</li>
-                  <li class="list-group-item">プリン</li>
-                  <li class="list-group-item">キャンディー</li>
+                <li class="list-group-item">焼き菓子</li>
+                <li class="list-group-item">プリン</li>
+                <li class="list-group-item">キャンディー</li>
               </ul>
         </div>
       </div>
+      <div>
+        <% if @item.image.attached? %>
+          <%= image_tag @item.image, size: "200x200" %>
+        <% else %>
+          <%= image_tag 'no_image.jpeg', size: "200x200" %>
+        <% end %>
+          <p>商品名 <%= @item.name %></p>
+          <p>商品説明 <%= @item.introduction %></p>
+          <!--個数選択したい-->
+            <!--%= form_with @item do |item| %>-->
+            <!--%= f.label :quantity, "数量" %>-->
+            <!--%= f.select :quantity, stock_array_maker(item.id) %> -->
+          <!--% end %>-->
+          
+          <p>¥<%= (@item.add_tax_price.to_s(:delimited)) %>(税込)</p>
+          
+          <%= link_to "カートに入れる", cart_items_path(@item.id),class: "btn btn-success" %>
+    </div>
     </div>
   </div>

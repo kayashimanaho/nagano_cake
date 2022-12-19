@@ -1,8 +1,8 @@
 
  <div class ="container-fluid">
-    <div ="row">
+    <div class="row">
+      <div class="col-md-4">
       <h2><strong>商品一覧</strong></h2><p>(全x件)</p>
-      <div class="col-sm-4">
         <div class="card" style="width: 18rem;">
           <div class="card-header">
             ジャンル検索</div>
@@ -14,22 +14,27 @@
               </ul>
         </div>
       </div>
-    </div>
-    <div class="card-deck">
-      <% @item.each do |item| %>
-        <div class="card" style="width: 18rem;">
+    <div class="col-md-8">
+   
+      <div class="row">
+      <% @items.each do |item| %>
+        <div class="card col-md-3">
+          <%= link_to item_path(item.id) do %>
           <% if item.image.attached? %>
-            <%= image_tag item.image %>
+            <%= image_tag item.image ,size: "230x150" %>
           <% else %>
-            <%= image_tag "no_image.jpeg" %>
+            <%= image_tag "no_image.jpeg",size: "230x150" %>
           <% end %>
           <div class="card-body">
             <p class="card-text"><%= item.name %></p>
             <p class="card-text">¥<%= (item.price.to_s(:delimited)) %></p>
+            <% end %>
             
           </div>
         </div>
       <% end %>
-  </div>
+      </div>
     
+  </div>
+  </div>
   </div>

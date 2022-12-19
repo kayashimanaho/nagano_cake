@@ -19,9 +19,12 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+         
+            
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
+            ようこそ！<%= current_customer.full_name %>さん
               <li class="nav-item">
                 <%= link_to my_page_customers_path , class: 'nav-link text-dark' do %>
                 <span><i class="fa-solid fa-cake-candles"></i>マイページ</span>
@@ -113,8 +116,8 @@
      <!--フラッシュメッセージの記述部分テンプレートで入れれるview入れなくても-->
     <%= yield %>
     </main>
-  
-    <footer class=" text-white pt-5 pb-4" style="background-color: #C0C0C0";>
+<!--"fixed-bottom"フッター固定したい-->
+    <footer class="text-white pt-5 pb-4" style="background-color: #C0C0C0";>
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-4"></div>
