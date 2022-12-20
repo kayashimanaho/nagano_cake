@@ -22,12 +22,15 @@ class Public::SessionsController < Devise::SessionsController
   # 退会しているかを判断するメソッド
   def customer_state
     # 入力されたemailからアカウントを一件取得
-    @customer = Customer.find_by(email: params[:customer][:password])
+    @customer = Customer.find_by(email: params[:customer][:email])
     # アカウントを取得出来なかった場合、このメソッドを終了する
     return if !@customer
     # 取得したアカウントのパスワードと入力されたパスワードが一致しているかを判断
-    if @customer.valid_password?(params[:customer][:password])
-    # 条件式の記述が
+    if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
+  
+      render my_page_customers_path
+    else
+      redirect_to new_customer_registration_path
     end
   end
     

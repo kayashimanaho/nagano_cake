@@ -28,21 +28,21 @@
     <h3><strong>新着商品</strong></h3>
     <div class="card-deck">
       <!--カードを詳細リンクにしたい-->
-       <%#= link_to item_path(item.id) do %>
-      <% @item.each do |item| %>
         <div class="card" style="width: 18rem;">
-          <% if item.image.attached? %>
-            <%= image_tag item.image %>
-          <% else %>
-            <%= image_tag "no_image.jpeg" %>
+          <% @item.each do |item| %>
+           <%= link_to item_path(item.id) do %>
+              <% if item.image.attached? %>
+                <%= image_tag item.image %>
+              <% else %>
+                <%= image_tag "no_image.jpeg" %>
+              <% end %>
+            <% end %>
+            <div class="card-body">
+              <p class="card-text"><%= item.name %></p>
+              <p class="card-text">¥<%= (item.price.to_s(:delimited)) %></p>
           <% end %>
-          <div class="card-body">
-            <p class="card-text"><%= item.name %></p>
-            <p class="card-text">¥<%= (item.price.to_s(:delimited)) %></p>
-            <%# end %>
           </div>
         </div>
-      <% end %>
       
   </div>
   </div>
