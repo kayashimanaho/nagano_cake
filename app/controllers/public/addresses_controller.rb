@@ -17,4 +17,10 @@ class Public::AddressesController < ApplicationController
 
   def destroy
   end
+  
+  private
+
+def address_params
+     params.require(:address).permit(:cusramer_id,:name,:postal_code,:address)
+end
 end

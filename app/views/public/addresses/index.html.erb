@@ -12,6 +12,27 @@
       <%= link_to "新規登録", addresses_path,class: "btn btn-success" %>
   <% end %>
 
+ <table border="1" cellpadding="11" cellspacing="0">
+  <tbody style="background:lightgray">
+   <tr>
+    <th>郵便番号</th>
+    <th>住所</th>
+    <th>宛名</th>
+    <th></th>
+   </tr>
+  </thead>
+
+  <tbody style >
+    <% @addresses.each do |address| %>
+    <tr>
+      <td><%= address.postal_code %></td>
+      <td>wwww</td>
+      <td></td>
+      <td></td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
 
 
 </div>

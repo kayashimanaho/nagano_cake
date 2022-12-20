@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container text-center">
 <h4>ログイン</h4>
 
 <h6>会員の方はこちらからログイン</h6>
@@ -26,6 +26,6 @@
 <% end %>
 
 <h6>会員登録がお済みでない方</h6>
-<%= render "public/shared/links" %>
+<a><%= link_to "こちら",new_customer_registration_path %>から新規登録してね</a>
 
 </div>
