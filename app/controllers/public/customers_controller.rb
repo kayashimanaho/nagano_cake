@@ -6,11 +6,11 @@ class Public::CustomersController < ApplicationController
   
   def edit
     # @customer = Customer.find(params[:id])
-     @customers = current_customer
+     @customer = current_customer
   end
   
   def update
-      @customer = Customer.find(params[:id])
+    @customer = current_customer
     @customer.update(customer_params)
      redirect_to my_page_customers_path(@customer.id)
   end
@@ -25,5 +25,11 @@ class Public::CustomersController < ApplicationController
     sign_out current_customer
     redirect_to root_path
   end
+  
+  private
+  
+   def customer_params
+    params.require(:customer).permit(:email, :reset_password_token, :reset_password_sent_at, :remember_created_at,:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :is_deleted)
+   end
   
 end

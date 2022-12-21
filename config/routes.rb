@@ -20,14 +20,14 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
         collection do
           get 'my_page'
           get 'information/edit', action: :edit
-          patch 'information'
+          patch 'information',action: :update
           get 'unsubscribe' 
           patch 'withdraw' 
           end
       end
       resources :cart_items, only:[:index, :update, :destroy, :create] do
         collection do
-          delete 'destroy_all' => 'destroy_all'
+          delete 'destroy_all',action: :delete
         end
       end
       resources :orders, only:[:new, :create, :index, :show] do

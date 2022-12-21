@@ -6,7 +6,7 @@
     <a>郵便番号(ハイフンなし)</a>
       <%= f.text_field :postal_code, placeholder:"0000000" %><br>
     <a>住所</a>
-      <%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0" %><br>
+      <%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0",size: 50 %><br>
     <a>宛名</a>
       <%= f.text_field :name, placeholder:"令和道子" %>
       <%= link_to "新規登録", addresses_path,class: "btn btn-success" %>
