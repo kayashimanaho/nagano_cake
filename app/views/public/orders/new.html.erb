@@ -1,8 +1,29 @@
 <div class ="container">
   <h3><span style="background-color: silver;">注文情報入力</span></h3>
+  <%= form_with url: comfirm_orders_path,model: @order do |f| %>
     <strong>支払方法</strong><br>
-    <strong>お届け先</strong>
+     <%= f.collection_radio_buttons :payment_method, Order.payment_methods_i18n, :first, :last %>
+        
+    <strong>お届け先</strong><br>
+      <%= f.radio_button :address, "0" %>
+      <%= f.label :address, 'ご自身の住所', value: 0 %><br>
+      <%= @address.address %><br>
+      
+      <%= f.radio_button :address, "1" %>
+     <%= f.label :address, '登録済み住所から選択', value: 1 %><br>
+     <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %><br>
+      
+      
+    <%= f.radio_button :address, "2" %>
+     <%= f.label :address, '新しいお届け先', value: 2 %><br>
+    <a>郵便番号(ハイフンなし)</a>
+      <%= f.text_field :postal_code, placeholder:"0000000" %><br>
+    <a>住所</a>
+      <%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0",size: 50 %><br>
+    <a>宛名</a>
+      <%= f.text_field :name, placeholder:"令和道子" %>
   <div class ="container text-center">
-    <%= link_to "確認画面へ進む", comfirm_orders_path,class: "btn btn-primary" %>
+    <%= f.submit "確認画面へ進む",class: "btn btn-primary" %>
   </div>
+  <% end %>
   </div>

@@ -1,7 +1,7 @@
-<div class="jumbotron">
-  <div class ="container-fluid">
+
+  <div class ="container">
     <div ="row">
-      <div class="col-sm-4">
+      <div class="col-4">
         <div class="card" style="width: 18rem;">
           <div class="card-header">
             ジャンル検索</div>
@@ -13,22 +13,21 @@
               </ul>
         </div>
       </div>
+      <div class="col-8">
+        <div calss ="text">
+          <a>ようこそ、ながのCAKEへ！</a><br>
+          <a>このサイトは、ケーキ販売のECサイトになります。</a><br>
+          <a>会員でない方も商品の閲覧はできますが、</a><br>
+          <a>購入には会員登録が必要になります。</a><br>
+        </div>
+      </div>
     </div>
-
-<div class="col-sm-8">
-  <div calss ="text">
-    <a>ようこそ、ながのCAKEへ！</a><br>
-    <a>このサイトは、ケーキ販売のECサイトになります。</a><br>
-    <a>会員でない方も商品の閲覧はできますが、</a><br>
-    <a>購入には会員登録が必要になります。</a><br>
-  </div>
-</div>
 <div class ="row">
-  <div class="col-sm-8">
+  <div class="col-md-8">
     <h3><strong>新着商品</strong></h3>
     <div class="card-deck">
       <!--カードを詳細リンクにしたい-->
-        <div class="card" style="width: 18rem;">
+        <div class="card style="width: 18rem;"">
           <% @item.each do |item| %>
            <%= link_to item_path(item.id) do %>
               <% if item.image.attached? %>
@@ -43,10 +42,8 @@
           <% end %>
           </div>
         </div>
-      
-  </div>
-  </div>
-</div>
+      </div>
+    </div>
   </div>
 </div>
 

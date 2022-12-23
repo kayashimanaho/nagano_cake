@@ -27,12 +27,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       end
       resources :cart_items, only:[:index, :update, :destroy, :create] do
         collection do
-          delete 'destroy_all',action: :delete
+          delete 'destroy_all',action: :destroy_all
         end
       end
       resources :orders, only:[:new, :create, :index, :show] do
         collection do
-          get 'comfirm'
+          post 'comfirm'
           get 'complete'
         end
       end
