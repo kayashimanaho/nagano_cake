@@ -12,8 +12,9 @@
               </ul>
         </div>
       </div>
-      <div class ="col-3">
+      
         <%= form_with model: @cart_item,url: cart_items_path,method: :post do |f| %>
+        <div class ="col-3">
         <% if @item.image.attached? %>
           <%= image_tag @item.image, size: "250x200" %>
         <% else %>

@@ -22,7 +22,7 @@ class Public::CartItemsController < ApplicationController
     redirect_to cart_items_path
   end
   
-  def create 
+  def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.save
     redirect_to cart_items_path  

@@ -1,13 +1,18 @@
 <div class="container">
-<h3><span style="background-color: silver;">商品一覧</span></h3>
- <p class="text-right">
-    <%= link_to new_admin_item_path,class: 'nav-link text-dark' do  %>
-      <span><i class="fa-solid fa-plus"></i></span>
-    <% end %>
-  </p>
-    <table width="900",align="center">
-      <thead>
-        <tr class="p-3 mb-2 bg-secondary text-white">
+  <div class ="row">
+    <div class ="col-5">
+      <h3><span style="background-color: silver;">商品一覧</span></h3>
+    </div>
+    <div class ="col-7">
+      <%= link_to new_admin_item_path,class: 'nav-link text-dark' do  %>
+        <span><i class="fa-solid fa-circle-plus"></i></span>
+      <% end %>
+    </div>
+  </div>
+    
+    <table border="0" cellpadding="11" cellspacing="0" width="95%">
+    <thead style="background:lightgray">
+        <tr>
           <th><b>商品ID</b></th>
           <th><b>商品名</b></th>
           <th></th>
@@ -38,3 +43,6 @@
     </tbody>
   </table>
 </div>
+   <div class="container-center-block">
+    <div><%= paginate @items %></div>
+  </div>

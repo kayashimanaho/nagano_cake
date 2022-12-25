@@ -1,5 +1,6 @@
 <div class="container">
-<h4><span style="background-color: silver;">会員一覧</span></h4>
+  <!--<div class ="row">-->
+<h3><span style="background-color: silver;">会員一覧</span></h3>
 <table width="900",align="center">
     <thead>
       <tr class="p-3 mb-2 bg-secondary text-white">
@@ -29,5 +30,8 @@
     <% end %>
   </tbody>
   </table>
+   <div class="center-block">
+    <div><%= paginate @customers %></div>
+  </div>
   </div>
  

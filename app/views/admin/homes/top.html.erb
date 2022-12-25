@@ -1,16 +1,14 @@
 <div class ="container">
   <h3><span style="background-color: silver;">注文履歴一覧</span></h3>
-  <div class="card" style="width: 65rem;">
-  <div class="card-header">
-   <table>
-    <thead>
+  
+ 
+    <table border="0" cellpadding="11" cellspacing="0" width="95%">
+    <thead style="background:lightgray">
       <tr>
-        <th><b>購入日時</b></th>
-        <th><b>購入者</b></th>
-        <th></th>
-        <th></th>
-        <th><b>注文個数</b></th>
-        <th><b>注文ステータス</b></th>
+        <th width="20%">購入日時</th>
+        <th>購入者</th>
+        <th width="20%">注文個数</th>
+        <th width="20%">注文ステータス</th>
      </tr>
   </thead>
   <tbody>
@@ -18,7 +16,6 @@
     <tr>
       <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(customer.id) %></td>
       <td><%= order.name %></td>
-      <td></td>
       <!--<td>%=注文個数を表示させたい  %></td>-->
       <!--td>%=注文ステータス入れたい  %></td>-->
     </tr>
@@ -26,6 +23,5 @@
   </tbody>
   </table>
  
-</div>
 </div>
 </div>
