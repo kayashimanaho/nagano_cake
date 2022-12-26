@@ -5,14 +5,14 @@ class Order < ApplicationRecord
   
    has_one_attached :image
    
-   enum order_status: {
-    waiting: 0,
-    paid_up: 1,
-    preparing: 2,
-    shipped: 3
-}
+  # enum order_status: {
+    # waiting: 0,
+    # paid_up: 1,
+    # preparing: 2,
+    # shipped: 3
+# }
 
  def address_all
   '〒' + postal_code + ' ' + address + ' ' + name
-  end
+ end
 end

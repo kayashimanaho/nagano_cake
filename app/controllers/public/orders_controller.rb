@@ -57,13 +57,15 @@ class Public::OrdersController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
-    @orders = current_customer.orders.all
+    @orders = current_customer.orders.page(params[:page]).per(8)
   end
 
   def show
+    @total = 0
     @shipping_cost = 800
     @order = Order.find(params[:id])
-    # @order_details = current_customer.item_id
+    @order_details = @order.order_details
+    
   end
   
    private

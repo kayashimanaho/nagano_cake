@@ -13,9 +13,9 @@
           <div class ="col-4">
             <strong>請求情報</strong>  
             <table border="1" cellpadding="11" cellspacing="0" width="90%">
-              <tr><th style="background:lightgray"width="30%">商品合計</th></th><td><%= @order.total_payment %></td></tr>
+              <tr><th style="background:lightgray"width="30%">商品合計</th></th><td><%= @order.total_payment.to_s(:delimited) %></td></tr>
               <tr><th style="background:lightgray">配送料</th><td><%= @shipping_cost = 800 %></td></tr>
-              <tr><th style="background:lightgray"><span class="example">ご請求額</span></th><td><%= (@order.total_payment += @shipping_cost) %></td></tr>
+              <tr><th style="background:lightgray"><span class="example">ご請求額</span></th><td><%= (@order.total_payment += @shipping_cost).to_s(:delimited) %></td></tr>
             </table>
           </div>
         </div>
@@ -31,14 +31,15 @@
             </thead>
 
             <tbody style >
-              <!--% @order_details.each do |order_detail| %>-->
+              <% @order_details.each do |order_detail| %>
               <tr>
-                <td><%#= order_detail.item.name %></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><%= order_detail.item.name %></td>
+                <td><%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
+                <td><%= order_detail.amount %></td>
+                <td><%#= order_detail.total_payment %></td>
+                
                </tr>
-               <!--% end %>-->
+               <% end %>
             </tbody>
           </table>
   </div>      
