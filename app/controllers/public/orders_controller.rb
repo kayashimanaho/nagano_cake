@@ -10,6 +10,7 @@ class Public::OrdersController < ApplicationController
     @shipping_cost = 800
     
     @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     @cart_items = current_customer.cart_items.all
     @address = current_customer
   
@@ -37,22 +38,32 @@ class Public::OrdersController < ApplicationController
   def create
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
-    @order.save
+    @order.total_payment = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    @shipping_cost = 800
+    @order.status = 0
+    @order.save!
     @cart_items.each do |cart_item|
       @order_detail = OrderDetail.new
       @order_detail.order_id = @order.id
       @order_detail.item_id = cart_item.item_id
       @order_detail.price = cart_item.item.with_tax_price
       @order_detail.amount = cart_item.amount
-      @order_detail.save
+      @order_detail.making_status = 0
+      @order_detail.save!
+    current_customer.cart_items.destroy_all
     end
     redirect_to complete_orders_path
   end
 
   def index
+    @cart_items = current_customer.cart_items
+    @orders = current_customer.orders.all
   end
 
   def show
+    @shipping_cost = 800
+    @order = Order.find(params[:id])
+    # @order_details = current_customer.item_id
   end
   
    private
