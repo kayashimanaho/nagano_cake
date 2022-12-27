@@ -6,6 +6,7 @@ class Admin::OrdersController < ApplicationController
     @shipping_cost = 800
     @order = Order.find(params[:id])
     @order_details = @order.order_details
+    
   end
 
   def update
@@ -15,7 +16,7 @@ class Admin::OrdersController < ApplicationController
   end
   
   private
-# 製造ステータスは？
+
   def order_params 
     params.require(:order).permit(:status)
   end

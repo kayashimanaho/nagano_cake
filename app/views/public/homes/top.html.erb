@@ -13,8 +13,7 @@
               </ul>
         </div>
       </div>
-    </div>
-    <div class ="row">
+  
       <div class="col-md-8">
         <div calss ="text">
           <a>ようこそ、ながのCAKEへ！</a><br>
@@ -22,26 +21,31 @@
           <a>会員でない方も商品の閲覧はできますが、</a><br>
           <a>購入には会員登録が必要になります。</a><br>
         </div>
- 
-    <h3><strong>新着商品</strong></h3>
-    <div class="card-deck">
-     <div class="card style="width: 18rem;"">
-          <% @item.each do |item| %>
-           <%= link_to item_path(item.id) do %>
-              <% if item.image.attached? %>
-                <%= image_tag item.image %>
-              <% else %>
-                <%= image_tag "no_image.jpeg" %>
+      </div>
+    </div>
+    <div class ="row">
+      <div class ="col-4"></div>
+      <div class ="col-8">
+        <h3><strong>新着商品</strong></h3>
+          <div class="card style="width: 18rem;"">
+            <% @item.each do |item| %>
+              <%= link_to item_path(item.id) do %>
+                <% if item.image.attached? %>
+                  <%= image_tag item.image %>
+                <% else %>
+                  <%= image_tag "no_image.jpeg" %>
+                <% end %>
               <% end %>
+              <div class="card-body">
+                <p class="card-text"><%= item.name %></p>
+                <p class="card-text">¥<%= (item.price.to_s(:delimited)) %></p>
             <% end %>
-            <div class="card-body">
-              <p class="card-text"><%= item.name %></p>
-              <p class="card-text">¥<%= (item.price.to_s(:delimited)) %></p>
-          <% end %>
+              </div>
           </div>
-        </div>
       </div>
-      </div>
+    </div>
+  </div>
+  <div class ="aaa">
+  <%= link_to "すべての商品を見る>", items_path %>
    </div>
-</div>
 

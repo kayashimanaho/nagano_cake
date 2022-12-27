@@ -14,14 +14,16 @@
   <tbody>
     <% @orders.each do |order| %>
     <tr>
-      <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(order.id) %></td>
+      <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_path(order.id) %></td>
       <td><%= order.customer.full_name %></td>
       <td><%= order.order_details.sum(:amount) %></td>
-      <!--td>%=注文ステータス入れたい  %></td>-->
+      <td><%= order.status %></td>
     </tr>
     <% end %>
   </tbody>
   </table>
- 
+ </div>
 </div>
-</div>
+ <div class="d-flex align-items-center justify-content-center">
+    <div><%= paginate @orders %></div>
+  </div>
