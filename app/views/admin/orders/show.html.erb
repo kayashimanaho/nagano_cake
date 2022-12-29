@@ -33,8 +33,9 @@
             <td><%= order_detail.amount %></td>
             <td><%= order_detail.subtotal.to_s(:delimited) %></td>
             <td>
-              <%= form_with model: @order_detail, url: admin_order_path, method: :patch, local: true do |f| %>
-              <%#= f.select :making_status, Order.making_status.keys, class: "making_status" %>
+              <!--製作ステータスの記述 orderとorder_detailのコントローラーに記述書いたupdate-->
+              <%= form_with model: order_detail, url: admin_order_path, method: :patch, local: true do |f| %>
+              <%#= f.select :making_status, Order.order_detail.making_status.keys, class: "making_status" %>
               <%= f.submit "更新" , class: "btn btn-success" %>
               <% end %>
             </td>
@@ -50,5 +51,5 @@
       <tr><th>送料</th><td><%= @shipping_cost = 800 %>円</td></tr>
       <tr><th>請求金額合計</th><td><%= (@order.total_payment += @shipping_cost).to_s(:delimited) %>円</td></tr>
     </table>
-    </div>
+  </div>
 </div>

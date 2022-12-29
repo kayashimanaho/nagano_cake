@@ -1,5 +1,7 @@
 
   <div class ="container">
+    
+    
     <div class ="row">
       <div class="col-md-3">
         <div class="card" style="width: 18rem;">
@@ -16,10 +18,12 @@
   
       <div class="col-md-9">
         <div calss ="text">
+          <%= image_tag 'do.jpeg', size: "600x100" %><br>
           <a>ようこそ、ながのCAKEへ！</a><br>
           <a>このサイトは、ケーキ販売のECサイトになります。</a><br>
           <a>会員でない方も商品の閲覧はできますが、</a><br>
           <a>購入には会員登録が必要になります。</a><br>
+          <%= image_tag 'do.jpeg', size: "600x100" %>
         </div>
       </div>
     </div>
@@ -32,9 +36,9 @@
             <span>
               <%= link_to item_path(item.id) do %>
                 <% if item.image.attached? %>
-                  <%= image_tag item.image %>
+                  <%= image_tag item.image, size: "200x100" %>
                 <% else %>
-                  <%= image_tag "no_image.jpeg" %>
+                  <%= image_tag "no_image.jpeg", size: "200x100" %>
                 <% end %>
               <% end %>
               <div class="card-body">
