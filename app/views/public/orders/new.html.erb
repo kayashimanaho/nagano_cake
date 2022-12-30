@@ -16,12 +16,18 @@
       
     <%= radio_button_tag :address_option, "2" %>
      <%= label_tag :address_option, '新しいお届け先', value: 2 %><br>
-    <a>郵便番号(ハイフンなし)</a>
-      <%= f.text_field :postal_code, placeholder:"0000000" %><br>
-    <a>住所</a>
-      <%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0",size: 50 %><br>
-    <a>宛名</a>
-      <%= f.text_field :name, placeholder:"令和道子" %>
+     <table border="0" cellpadding="11" cellspacing="0" width="60%">
+      <tr><th>郵便番号(ハイフンなし)</th><td>
+        <%= f.text_field :postal_code, placeholder:"0000000" %>
+      </td></tr>
+      <tr><th>住所</th><td>
+        <%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0",size: 50 %>
+      </td></tr>
+      <tr><th>宛名</th><td>
+        <%= f.text_field :name, placeholder:"令和道子" %>
+      </td></tr>
+    </table>
+    
   <div class ="container text-center">
     <%= f.submit "確認画面へ進む",class: "btn btn-primary" %>
   </div>

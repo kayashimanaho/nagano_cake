@@ -12,9 +12,14 @@
     <tr><th style="background:lightgray">メールアドレス</th><td><%= @customers. email %></td></tr>
   </table>
   
-  <table>
-    <h5><strong>配送先</strong></th></td><%= link_to "一覧を見る", addresses_path,class: "btn btn-primary" %></h5>
-    <h5><strong>注文履歴</strong><%= link_to "一覧を見る", orders_path,class: "btn btn-primary" %></h5>
-  </table>
+  <table style="border:0px black solid;">
+    <tr>
+      <td style="border:0px black solid; padding:20px;"><h5><strong>配送先</strong><%= link_to "一覧を見る", addresses_path,class: "btn btn-primary" %></h5></td>
+    </tr>
+    <tr>
+      <th><h5><strong>注文履歴</strong><%= link_to "一覧を見る", orders_path,class: "btn btn-primary" %></h5></th>
+      
+    </tr>
+</table>
   </div>
   

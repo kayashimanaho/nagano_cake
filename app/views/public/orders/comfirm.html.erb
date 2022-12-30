@@ -18,7 +18,7 @@
                 <td><%= image_tag cart_item.item.get_image(60,40) %><%= cart_item.item.name %></td>
                 <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
                 <td><%= cart_item.amount %></td>
-                <td><%= cart_item.subtotal %></td>
+                <td><%= cart_item.subtotal.to_s(:delimited) %></td>
                 
                </tr>
                <% end %>
@@ -29,7 +29,7 @@
       <div class ="col-4">
         <table border="1" cellpadding="11" cellspacing="0" width="90%">
           <tr><th style="background:lightgray"width="30%">送料</th></th><td><%= @shipping_cost %></td></tr>
-          <tr><th style="background:lightgray">商品合計</th><td><%= @order.total_payment %></td></tr>
+          <tr><th style="background:lightgray">商品合計</th><td><%= @order.total_payment.to_s(:delimited) %></td></tr>
           <tr><th style="background:lightgray"><span class="example">請求金額</span></th><td><%= (@order.total_payment += @shipping_cost) %></td></tr>
         </table>
       </div>
