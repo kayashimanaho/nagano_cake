@@ -13,7 +13,12 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = OrderDetail.where(order_id: params[:id])
     if @order.update(order_params)
-      @order_details.update_all(making_status: 1) if @order.status == "payment_confirmation"
+      if @order.status = 1 
+        @order_details.each do |order_detail|
+          order_detail.making_status = 1
+          order_detail.save
+        end
+      end
       #注文ステータスが「入金確認」とき、製作ステータスを全て「製作待ち」に更新する
     end
     redirect_to admin_order_path(@order)

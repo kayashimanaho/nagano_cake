@@ -32,7 +32,7 @@
       <div class ="col-9">
         <h3><strong>新着商品</strong></h3>
           <div class="card d-flex flex-row flex-wrap">
-            <% @item.each do |item| %>
+            <% @items.each do |item| %>
             <span>
               <%= link_to item_path(item.id) do %>
                 <% if item.image.attached? %>

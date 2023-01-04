@@ -34,8 +34,8 @@
             <td><%= order_detail.subtotal.to_s(:delimited) %></td>
             <td>
               <!--製作ステータスの記述 orderとorder_detailのコントローラーに記述書いたupdate-->
-              <%= form_with model: order_detail, url: admin_order_path, method: :patch, local: true do |f| %>
-              <%#= f.select :making_status, Order.order_detail.making_status.keys, class: "making_status" %>
+              <%= form_with model: order_detail, url:  admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
+              <%= f.select :making_status, OrderDetail.making_statuses.keys, class: "making_status" %>
               <%= f.submit "更新" , class: "btn btn-success" %>
               <% end %>
             </td>
