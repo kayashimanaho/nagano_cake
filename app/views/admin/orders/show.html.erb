@@ -7,7 +7,7 @@
     <tr><th>支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
     <tr><th>注文ステータス</th><td>
       <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
-      <%= f.select :status, Order.statuses.keys, class: "status" %>
+      <%= f.select :status, Order.statuses.keys.map { |k| [t("enums.order.status.#{k}"), k] }, class: "status" %>
       <%= f.submit "更新" , class: "btn btn-success" %>
       <% end %>
     </td></tr>
@@ -35,7 +35,7 @@
             <td>
               <!--製作ステータスの記述 orderとorder_detailのコントローラーに記述書いたupdate-->
               <%= form_with model: order_detail, url:  admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
-              <%= f.select :making_status, OrderDetail.making_statuses.keys, class: "making_status" %>
+              <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [t("enums.order_detail.making_status.#{k}"), k] }, class: "making_status" %>
               <%= f.submit "更新" , class: "btn btn-success" %>
               <% end %>
             </td>

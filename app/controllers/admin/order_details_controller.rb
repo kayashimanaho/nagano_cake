@@ -7,12 +7,10 @@ class Admin::OrderDetailsController < ApplicationController
     
      @order_detail.update(order_detail_params)
      if @order_details.where(making_status: 2).count >= 1
-       @order.status = 2
-       @order.save
+       @order.update(status: 2)
      end
      if @order.order_details.count == @order_details.where(making_status: 3).count
-       @order.status = 3
-       @order.save
+       @order.update(status: 3)
      end
       
       # is_updatedがtrueの場合に、注文ステータスが「発送準備中」に更新されます。上記のif文でis_updatedがfalseになっている場合、更新されません。
